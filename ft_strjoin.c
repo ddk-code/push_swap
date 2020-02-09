@@ -1,25 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pcharlot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/04 16:46:24 by pcharlot          #+#    #+#             */
-/*   Updated: 2020/02/04 16:46:25 by pcharlot         ###   ########.fr       */
+/*   Created: 2020/02/09 20:33:46 by pcharlot          #+#    #+#             */
+/*   Updated: 2020/02/09 20:33:48 by pcharlot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int 	main(int argc, char **argv)
+char	*ft_strjoin(char *s1, char *s2)
 {
-	if (argc <= 1)
-		printf("Аргументов недостаточно");
+	char	*res;
+	int		i;
+	int		len1;
 
-	char *s;
-	s =	ft_strjoin("Аргументов", " 123");
-	printf("%s", s);
-
-	return (0);
+	i = 0;
+	len1 = ft_strlen(s1);
+	res = (char *)malloc(len1 + ft_strlen(s2) + 1);
+	while (s1[i])
+	{
+		res[i] = s1[i];
+		++i;
+	}
+	while (s2[i - len1])
+	{
+		res[i] = s2[i - len1];
+		++i;
+	}
+	res[i] = '\0';
+	return (res);
 }
