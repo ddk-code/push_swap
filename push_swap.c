@@ -27,4 +27,5 @@ int 	main(int argc, char **argv)
 	s = ft_strjoin(s, argv[1]);
 	printf("s = %s\n", s);
 	printf("len s = %d\n", ft_strlen(s));
+	
 }
