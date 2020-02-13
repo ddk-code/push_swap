@@ -6,7 +6,7 @@
 /*   By: pcharlot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/04 16:46:24 by pcharlot          #+#    #+#             */
-/*   Updated: 2020/02/04 16:46:25 by pcharlot         ###   ########.fr       */
+/*   Updated: 2020/02/13 11:47:09 by pcharlot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,19 @@
 void	set_value_to_stack(t_stack **stack, int nbr)
 {
 	t_stack	*temp;
-	t_stack *head;
 
-	temp = stack;
-
-
-
+	temp = *stack;
+	while (temp->next)
+    {
+	    temp->nbr = nbr;
+	    temp = temp->next;
+    }
 }
 
+void    set_stack()
+{
+
+}
 
 
 int 	main(int argc, char **argv)
@@ -52,5 +57,5 @@ int 	main(int argc, char **argv)
 		s = ft_strjoin(s, sp); ///разделяем аргументы пробелом
 		++i;
 	}
-//	printf("s = %s\n", s);
+	printf("s = %s\n", s);
 }
