@@ -6,7 +6,7 @@
 /*   By: pcharlot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/04 16:46:31 by pcharlot          #+#    #+#             */
-/*   Updated: 2020/02/04 16:46:32 by pcharlot         ###   ########.fr       */
+/*   Updated: 2020/02/13 13:41:21 by pcharlot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,4 +30,11 @@ typedef struct		s_stack
 int					ft_strlen(char *s);
 char				*ft_strjoin(char *s1, char *s2);
 
+long long			ft_atoi(char *s);
+
 #endif
+
+
+int					ft_digcount(long long nbr);
+
+int					is_digit(char c);
