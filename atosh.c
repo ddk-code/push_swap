@@ -6,7 +6,7 @@
 /*   By: pcharlot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/15 18:46:24 by pcharlot          #+#    #+#             */
-/*   Updated: 2020/02/15 19:21:32 by pcharlot         ###   ########.fr       */
+/*   Updated: 2020/02/15 19:23:45 by pcharlot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,13 +35,18 @@ long long	atosh(char *s, int *i) ///вытаскивает из строки ч�
 	while (s[*i] && is_digit09(s[*i]))
 	{
 		res = res * 10 + (s[*i] - '0');
+		if ((res * sign < (long long)INT_MIN) || (res * sign > (long long)INT_MAX))
+		{
+			write(2, "Error: among the supplied values there are non-integer numbers.", 63);
+			exit (0);
+		}
 		++(*i);
 	}
 
-	if ((res * sign < (long long)INT_MIN) || (res * sign > (long long)INT_MAX))
-	{
-		write(2, "Error: among the supplied values there are non-integer numbers.", 63);
-		exit (0);
-	}
+//	if ((res * sign < (long long)INT_MIN) || (res * sign > (long long)INT_MAX))
+//	{
+//		write(2, "Error: among the supplied values there are non-integer numbers.", 63);
+//		exit (0);
+//	}
 	return (res * sign);
 }
