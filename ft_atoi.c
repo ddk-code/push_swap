@@ -6,7 +6,7 @@
 /*   By: pcharlot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/13 11:40:58 by pcharlot          #+#    #+#             */
-/*   Updated: 2020/02/13 13:33:49 by pcharlot         ###   ########.fr       */
+/*   Updated: 2020/02/15 15:48:16 by pcharlot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,11 @@ long long	ft_atoi(char *s)
 		res = res * 10 + (s[i] - '0');
 		++i;
 	}
-//	if ((res < −2147483648) || (res > 2147483647))
-//		exit (0);
+
+	if ((res * sign < (long long)INT_MIN) || (res * sign > (long long)INT_MAX))
+	{
+		write(2, "Error: Among the supplied values there are non-integer numbers.\nThe program is terminated.", 90);
+		exit (0);
+	}
 	return (res * sign);
 }

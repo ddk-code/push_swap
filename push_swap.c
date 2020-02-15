@@ -6,7 +6,7 @@
 /*   By: pcharlot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/04 16:46:24 by pcharlot          #+#    #+#             */
-/*   Updated: 2020/02/15 15:25:35 by pcharlot         ###   ########.fr       */
+/*   Updated: 2020/02/15 15:45:15 by pcharlot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,14 @@ int 	main(int argc, char **argv)
 //	printf("s = %s\n", s);
 
 
-	printf("%d: %d\n", -156, ft_digcount(-156));
-	printf("%d: %d\n", 0, ft_digcount(0));
+//	printf("%d: %d\n", -156, ft_digcount(-156));
+//	printf("%d: %d\n", 0, ft_digcount(0));
+
+
+	char *inmi = "-2147483649";
+	char *inma = "2147483647";
+	printf("%ld\n", ft_atoi(inmi));
+	printf("%ld\n", ft_atoi(inma));
+
 	return (0);
 }
