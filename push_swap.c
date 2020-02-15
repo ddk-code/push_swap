@@ -6,7 +6,7 @@
 /*   By: pcharlot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/04 16:46:24 by pcharlot          #+#    #+#             */
-/*   Updated: 2020/02/15 14:13:55 by pcharlot         ###   ########.fr       */
+/*   Updated: 2020/02/15 15:25:35 by pcharlot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,11 @@ int 	par_number(char *s)
 	i = 0;
 	while(s[i])
 	{
-		n = ft_atoi(s);
-
+		if (is_digit09(s[i]))
+		{
+			n = ft_atoi(s);
+			i = i + ft_digcount(n);
+		}
 
 	}
 }
