@@ -6,7 +6,7 @@
 /*   By: pcharlot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/04 16:46:31 by pcharlot          #+#    #+#             */
-/*   Updated: 2020/02/15 15:39:57 by pcharlot         ###   ########.fr       */
+/*   Updated: 2020/02/15 17:21:00 by pcharlot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,3 +40,6 @@ int					ft_digcount(long long nbr);
 int					is_digit09(char c);
 int					is_digit19(char c);
 void				ft_bzero(void *s, size_t n);
+int					ft_isspace(char c);
+int					intnum(char *s);
+long long			atosh(char *s, int *i); ///подумать над обработкой максимального и минимального интов ? возможно - решено
