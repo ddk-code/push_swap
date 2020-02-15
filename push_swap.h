@@ -6,7 +6,7 @@
 /*   By: pcharlot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/04 16:46:31 by pcharlot          #+#    #+#             */
-/*   Updated: 2020/02/15 15:37:41 by pcharlot         ###   ########.fr       */
+/*   Updated: 2020/02/15 15:39:57 by pcharlot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,3 +39,4 @@ long long			ft_atoi(char *s); ///подумать над обработкой м
 int					ft_digcount(long long nbr);
 int					is_digit09(char c);
 int					is_digit19(char c);
+void				ft_bzero(void *s, size_t n);
