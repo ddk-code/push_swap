@@ -6,7 +6,7 @@
 /*   By: pcharlot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/15 18:46:24 by pcharlot          #+#    #+#             */
-/*   Updated: 2020/02/15 18:46:26 by pcharlot         ###   ########.fr       */
+/*   Updated: 2020/02/15 19:21:32 by pcharlot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,11 @@ long long	atosh(char *s, int *i) ///вытаскивает из строки ч�
 		++(*i);
 	if (s[*i] == '-' || s[*i] == '+')
 	{
+		if(!is_digit09(s[*i + 1]))
+		{
+			write(2, "Error: among the supplied values there are non-integer numbers!!!", 65); ///Испавить воскл знаки
+			exit (0);
+		}
 		if (s[*i] == '-')
 			sign = -1;
 		++(*i);

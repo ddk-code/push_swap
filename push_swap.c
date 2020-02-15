@@ -6,7 +6,7 @@
 /*   By: pcharlot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/04 16:46:24 by pcharlot          #+#    #+#             */
-/*   Updated: 2020/02/15 19:03:30 by pcharlot         ###   ########.fr       */
+/*   Updated: 2020/02/15 19:17:47 by pcharlot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,32 @@ int intnum(char *s) ///подсчитывает количество цифр в
 	return (dig_numbers);
 }
 
-int *ft_tab(char *s) ///собирает массив интов, состоящий из переданных аргументов
+void	check_tab(int *tab, int size)
+{
+	int i;
+	int j;
+	int tmp;
+
+	i = 0;
+	while (size - i > 0)
+	{
+		j = i + 1;
+		tmp = tab[i];
+		while(size - j > 0)
+		{
+			if(tmp != tab[j])
+				++j;
+			else
+			{
+				write(2, "Error: among the input values there are identical integer numbers.", 66);
+				exit (0);
+			}
+		}
+		++i;
+	}
+}
+
+int *ft_tab(char *s) ///собирает массив интов, состоящий из переданных аргументов, если есть некорректные числа/сборные числа - выдает ошибку
 {
 	int size;
 	int *tab;
@@ -83,6 +108,7 @@ int *ft_tab(char *s) ///собирает массив интов, состоящ
 		}
 		++j;
 	}
+//	check_tab(tab, size);
 	return (tab);
 }
 
