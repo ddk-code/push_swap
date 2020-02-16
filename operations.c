@@ -6,7 +6,7 @@
 /*   By: pcharlot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/16 14:28:22 by pcharlot          #+#    #+#             */
-/*   Updated: 2020/02/16 17:57:23 by pcharlot         ###   ########.fr       */
+/*   Updated: 2020/02/16 18:35:30 by pcharlot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,3 +38,20 @@ void	sb(t_stack **st_b) ///swap b - swap the first 2 elements at the top of stac
 	}
 }
 
+void	pa(t_stack **st_a, t_stack **st_b) ///pa : push a - take the first element at the top of b and put it at the top of a. Do nothing if b is empty.
+{
+	if(*st_b)
+	{
+		add_new(st_a, (*st_b)->nbr);
+		dell_top(st_b);
+	}
+}
+
+void	pb(t_stack **st_b, t_stack **st_a) ///pb : push b - take the first element at the top of a and put it at the top of b. Do nothing if a is empty.
+{
+	if(*st_a)
+	{
+		add_new(st_b, (*st_a)->nbr);
+		dell_top(st_a);
+	}
+}
