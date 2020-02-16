@@ -6,16 +6,43 @@
 /*   By: pcharlot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/16 11:13:21 by pcharlot          #+#    #+#             */
-/*   Updated: 2020/02/16 13:04:49 by pcharlot         ###   ########.fr       */
+/*   Updated: 2020/02/16 13:31:42 by pcharlot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	check_chars(char *s);
-int 	intnum(char *s);
-void	check_tab(int *tab, int size);
-int		*ft_tab(char *s);
+//void	check_chars(char *s);
+//int 	intnum(char *s);
+//void	check_tab(int *tab, int size);
+//int		*ft_tab(char *s);
+
+void	check_zero(char *s)
+{
+	int i;
+	int zs;
+
+	i = 0;
+	while(s[i])
+	{
+		zs = 0;
+		if(s[i] == '0')
+		{
+			while (s[i] && s[i] == '0')
+			{
+				++i;
+				++zs;
+			}
+			if (zs > 1 && (ft_isspace(s[i]) || s[i] == '\0'))
+			{
+				write(2, "Error: ноль представлен несколькими нолями.", 75);
+				exit (0);
+			}
+			--i;
+		}
+		++i;
+	}
+}
 
 void	check_argv(char *s)
 {
@@ -52,6 +79,7 @@ void	check_chars(char *s) ///если есть что-то, кроме цифр/
 			exit (0);
 		}
 	}
+	check_zero(s);
 }
 
 int intnum(char *s) //подсчитывает количество цифр в строке, если количество цифр 0 - выдает ошибку

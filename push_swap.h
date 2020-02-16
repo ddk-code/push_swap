@@ -6,7 +6,7 @@
 /*   By: pcharlot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/04 16:46:31 by pcharlot          #+#    #+#             */
-/*   Updated: 2020/02/16 11:17:03 by pcharlot         ###   ########.fr       */
+/*   Updated: 2020/02/16 11:55:47 by pcharlot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,3 +49,4 @@ int 	intnum(char *s);
 void	check_tab(int *tab, int size);
 int		*ft_tab(char *s);
 void	check_argv(char *s);
+void	check_zero(char *s); ///Представления ноля через несколько нолей считаем ошибкой
