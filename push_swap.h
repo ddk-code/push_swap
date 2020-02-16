@@ -40,6 +40,11 @@ int					is_digit09(char c);
 int					is_digit19(char c);
 void				ft_bzero(void *s, size_t n);
 int					ft_isspace(char c);
-int					intnum(char *s);
+
 long long			atosh(char *s, int *i); ///подумать над обработкой максимального и минимального интов ? возможно - решено
-void				check_tab(int *tab, int size);
+
+
+void	check_chars(char *s);
+int 	intnum(char *s);
+void	check_tab(int *tab, int size);
+int		*ft_tab(char *s);

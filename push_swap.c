@@ -6,110 +6,30 @@
 /*   By: pcharlot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/04 16:46:24 by pcharlot          #+#    #+#             */
-/*   Updated: 2020/02/15 19:17:47 by pcharlot         ###   ########.fr       */
+/*   Updated: 2020/02/16 11:36:24 by pcharlot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-//void	set_value_to_stack(t_stack **stack, int nbr)
-//{
-//	t_stack	*temp;
-//
-//	temp = *stack;
-//	while (temp->next)
-//    {
-//	    temp->nbr = nbr;
-//	    temp = temp->next;
-//    }
-//}
-
-void	check_chars(char *s) ///если есть что-то, кроме цифр/знаков/пробелов - выдает ошибку
+void	check_argv(char *s)
 {
 	int i;
+	int checker;
 
 	i = 0;
+	checker = 0;
 	while(s[i])
 	{
-		if(ft_isspace(s[i]) || s[i] == '-' || s[i] == '+' || is_digit09(s[i]))
-			++i;
-		else
-		{
-			write(2, "Error: among the supplied values there are non-integer numbers.", 63);
-			exit (0);
-		}
-	}
-}
-
-int intnum(char *s) ///подсчитывает количество цифр в строке, если количество цифр 0 - выдает ошибку
-{
-	int i;
-	int dig_numbers;
-
-	i = 0;
-	dig_numbers = 0;
-	while(s[i])
-	{
-		if(is_digit09(s[i]) && (ft_isspace(s[i + 1]) || s[i + 1] == '\0'))
-			++dig_numbers;
+		if(is_digit09(s[i]))
+			++checker;
 		++i;
 	}
-	if (dig_numbers == 0)
+	if (checker == 0)
 	{
-		write(2, "Error: passed values are not integer.", 37);
+		write(2, "Error: минимум в одном переданном параметре отсутствуют цифры.", 110); ///проверка каждого аргв перед склейкой в общую строку. Если цифры вообще отсутствуют - выдает ошибку
 		exit (0);
 	}
-	return (dig_numbers);
-}
-
-void	check_tab(int *tab, int size)
-{
-	int i;
-	int j;
-	int tmp;
-
-	i = 0;
-	while (size - i > 0)
-	{
-		j = i + 1;
-		tmp = tab[i];
-		while(size - j > 0)
-		{
-			if(tmp != tab[j])
-				++j;
-			else
-			{
-				write(2, "Error: among the input values there are identical integer numbers.", 66);
-				exit (0);
-			}
-		}
-		++i;
-	}
-}
-
-int *ft_tab(char *s) ///собирает массив интов, состоящий из переданных аргументов, если есть некорректные числа/сборные числа - выдает ошибку
-{
-	int size;
-	int *tab;
-	int i;
-	int j;
-
-	j = 0;
-	i = 0;
-	size = intnum(s);
-	tab = malloc(sizeof(int) * size);
-	while (j < size)
-	{
-		tab[j] = atosh(s, &i);
-		if (!ft_isspace(s[i]))
-		{
-			write(2, "Error: among the supplied values there are non-integer numbers!", 63); ///Испавить воскл знак
-			exit (0);
-		}
-		++j;
-	}
-//	check_tab(tab, size);
-	return (tab);
 }
 
 int 	main(int argc, char **argv)
@@ -123,7 +43,8 @@ int 	main(int argc, char **argv)
 		write(2, "Error: not enough arguments.", 28);
 		return (0);
 	}
-	s = malloc(0);
+	s = malloc(1);
+	s[0] = '\0';
 //	printf("len s = %d\n", ft_strlen(s));
 //	s = ft_strjoin(s, argv[1]);
 //	printf("s = %s\n", s);
@@ -135,11 +56,12 @@ int 	main(int argc, char **argv)
 	sp[1] = '\0';
 	while (argc > i)
 	{
+		check_argv(argv[i]);
 		s = ft_strjoin(s, argv[i]); ///все аргументы сливаем в одну строку
 		s = ft_strjoin(s, sp); ///разделяем аргументы пробелом
 		++i;
 	}
-//	printf("\ns:%s\n", s);
+	printf("\ns:%s\n", s);
 //	printf("ints: %d\n", intnum(s));
 
 
@@ -151,6 +73,7 @@ int 	main(int argc, char **argv)
 		printf("%d\n", tab[i]);
 		++i;
 	}
+
 //	printf("%d\n", tab[0]);
 //	printf("%d\n", tab[1]);
 //	printf("%d\n", tab[2]);
