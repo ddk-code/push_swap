@@ -6,7 +6,7 @@
 /*   By: pcharlot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/04 16:46:24 by pcharlot          #+#    #+#             */
-/*   Updated: 2020/02/16 15:08:14 by pcharlot         ###   ########.fr       */
+/*   Updated: 2020/02/16 17:32:59 by pcharlot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,18 +61,18 @@ int 	main(int argc, char **argv)
 		s = ft_strjoin(s, sp); ///разделяем аргументы пробелом
 		++i;
 	}
-	printf("\ns:%s\n", s);
-	printf("ints: %d\n", intnum(s));
+	printf("\ns:  [%s]\n", s);
+	printf("ints: %d\n\n", intnum(s));
 
 
 	int *tab;
 	i = 0;
 	tab = ft_tab(s);
-	while (i < intnum(s))
-	{
-		printf("%d\n", tab[i]);
-		++i;
-	}
+//	while (i < intnum(s))
+//	{
+//		printf("%d\n", tab[i]);
+//		++i;
+//	}
 
 //	printf("%d\n", tab[0]);
 //	printf("%d\n", tab[1]);

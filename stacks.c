@@ -6,7 +6,7 @@
 /*   By: pcharlot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/16 14:29:37 by pcharlot          #+#    #+#             */
-/*   Updated: 2020/02/16 16:31:07 by pcharlot         ###   ########.fr       */
+/*   Updated: 2020/02/16 17:53:53 by pcharlot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	add_new(t_stack **st, int digit)
 
 	new = (t_stack *)malloc(sizeof(t_stack));
 	ft_fatality(new);
-//	new->nbr = malloc(sizeof(int)); ///это нужно ???
+/*	new->nbr = malloc(sizeof(int)); */ ///это нужно ???
 	new->nbr = digit;
 	new->next = *st;
 	*st = new;
@@ -40,9 +40,12 @@ void	dell_top(t_stack **st)
 {
 	t_stack *temp;
 
-	temp = *st;
-	*st = (*st)->next;
-	free(temp);
+	if (*st)
+	{
+		temp = *st;
+		*st = (*st)->next;
+		free(temp);
+	}
 }
 
 void	nachalo_detected(int *tab, int size)
@@ -51,13 +54,17 @@ void	nachalo_detected(int *tab, int size)
 	t_stack *st_b;
 	int i;
 
-	st_a = (t_stack *)malloc(sizeof(t_stack));
-	st_a->nbr = tab[0];
-	st_a->next = NULL;
-	st_b = (t_stack *)malloc(sizeof(t_stack));
-	st_b->next = NULL;
+//	st_a = (t_stack *)malloc(sizeof(t_stack));
+//	st_a->nbr = tab[0];
+//	st_a->next = NULL;
+
+	st_a = NULL;
+
+//	st_b = (t_stack *)malloc(sizeof(t_stack));
+//	st_b->next = NULL;
+	st_b = NULL;
 //	print_stack(st);
-	i = 1;
+	i = 0;
 	while (i < size)
 	{
 		add_new(&st_a, tab[i]);
@@ -65,7 +72,27 @@ void	nachalo_detected(int *tab, int size)
 	}
 	printf("\nstack a:\n");
 	print_stack(st_a);
-	dell_top(&st_a);
-	printf("\nDelTopA:\n");
+
+//	dell_top(&st_a);
+//	printf("\nDelTopA:\n");
+//	print_stack(st_a);
+
+//	printf("\nstack b:\n");
+//	print_stack(st_b);
+
+//	dell_top(&st_a);
+//	printf("\nDelTopA:\n");
+//	print_stack(st_a);
+//
+//	dell_top(&st_a);
+//	printf("\nDelTopA:\n");
+//	print_stack(st_a);
+//
+//	dell_top(&st_a);
+//	printf("\nDelTopA:\n");
+//	print_stack(st_a);
+
+	sa(&st_a);
+	printf("\nstack a after sa:\n");
 	print_stack(st_a);
 }
