@@ -6,7 +6,7 @@
 /*   By: pcharlot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/04 16:46:31 by pcharlot          #+#    #+#             */
-/*   Updated: 2020/02/16 18:35:30 by pcharlot         ###   ########.fr       */
+/*   Updated: 2020/02/16 18:40:28 by pcharlot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,7 @@ void	nachalo_detected(int *tab, int size);
 void	print_stack(t_stack *st);
 void	add_new(t_stack **st, int digit);
 void	dell_top(t_stack **st);
+void	add_new_down(t_stack **st, int digit);
 
 
 void	sa(t_stack **st_a);

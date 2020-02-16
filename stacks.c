@@ -6,7 +6,7 @@
 /*   By: pcharlot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/16 14:29:37 by pcharlot          #+#    #+#             */
-/*   Updated: 2020/02/16 18:42:32 by pcharlot         ###   ########.fr       */
+/*   Updated: 2020/02/16 19:09:52 by pcharlot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,28 @@ void	dell_top(t_stack **st)
 		*st = (*st)->next;
 		free(temp);
 	}
+}
+
+void	add_new_down(t_stack **st, int digit)
+{
+	t_stack	*temp;
+	t_stack *prev;
+	t_stack	*new;
+
+	new = (t_stack *)malloc(sizeof(t_stack));
+	ft_fatality(new);
+	temp = *st;
+	new->nbr = digit;
+	new->next = NULL;
+
+	while(temp->next)
+	{
+		prev = temp;
+		temp = temp->next;
+	}
+	temp->next = new;
+
+
 }
 
 void	nachalo_detected(int *tab, int size)
@@ -125,5 +147,13 @@ void	nachalo_detected(int *tab, int size)
 //
 //	printf("\nstack b:\n");
 //	print_stack(st_b);
+
+//	add_new_down(&st_a, 1000);
+//	printf("\nstack a after add_new_down:\n");
+//	print_stack(st_a);
+//
+//	add_new(&st_a, -1000);
+//	printf("\nstack a after add_new:\n");
+//	print_stack(st_a);
 
 }
