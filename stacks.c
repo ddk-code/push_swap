@@ -6,7 +6,7 @@
 /*   By: pcharlot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/16 14:29:37 by pcharlot          #+#    #+#             */
-/*   Updated: 2020/02/16 15:18:10 by pcharlot         ###   ########.fr       */
+/*   Updated: 2020/02/16 16:31:07 by pcharlot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,22 +36,36 @@ void	add_new(t_stack **st, int digit)
 	*st = new;
 }
 
+void	dell_top(t_stack **st)
+{
+	t_stack *temp;
+
+	temp = *st;
+	*st = (*st)->next;
+	free(temp);
+}
+
 void	nachalo_detected(int *tab, int size)
 {
-	t_stack *st;
+	t_stack *st_a;
+	t_stack *st_b;
 	int i;
 
-	st = (t_stack *)malloc(sizeof(t_stack));
-	st->nbr = tab[0];
-	st->next = NULL;
+	st_a = (t_stack *)malloc(sizeof(t_stack));
+	st_a->nbr = tab[0];
+	st_a->next = NULL;
+	st_b = (t_stack *)malloc(sizeof(t_stack));
+	st_b->next = NULL;
 //	print_stack(st);
 	i = 1;
 	while (i < size)
 	{
-		add_new(&st, tab[i]);
+		add_new(&st_a, tab[i]);
 		++i;
 	}
-	printf("\nstack:\n");
-	print_stack(st);
-
+	printf("\nstack a:\n");
+	print_stack(st_a);
+	dell_top(&st_a);
+	printf("\nDelTopA:\n");
+	print_stack(st_a);
 }

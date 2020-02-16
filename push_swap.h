@@ -6,7 +6,7 @@
 /*   By: pcharlot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/04 16:46:31 by pcharlot          #+#    #+#             */
-/*   Updated: 2020/02/16 15:02:42 by pcharlot         ###   ########.fr       */
+/*   Updated: 2020/02/16 15:14:45 by pcharlot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,5 +52,10 @@ void				check_argv(char *s);
 void				check_zero(char *s); ///Представления ноля через несколько нолей считаем ошибкой
 
 int					ft_strcmp(char *s1, char *s2);
+
 void				ft_fatality(void *t);
-void				nachalo_detected(int *tab, int size);
+
+void	nachalo_detected(int *tab, int size);
+void	print_stack(t_stack *st);
+void	add_new(t_stack **st, int digit);
+void	dell_top(t_stack **st);
