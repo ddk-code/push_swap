@@ -6,7 +6,7 @@
 /*   By: pcharlot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/04 16:46:31 by pcharlot          #+#    #+#             */
-/*   Updated: 2020/02/16 11:55:47 by pcharlot         ###   ########.fr       */
+/*   Updated: 2020/02/16 15:02:42 by pcharlot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@
 typedef struct		s_stack
 {
 	int				nbr;
-	struct t_stack	*next;
+	struct s_stack	*next;
 
 }					t_stack;
 
@@ -44,9 +44,13 @@ int					ft_isspace(char c);
 long long			atosh(char *s, int *i); ///подумать над обработкой максимального и минимального интов ? возможно - решено
 
 
-void	check_chars(char *s);
-int 	intnum(char *s);
-void	check_tab(int *tab, int size);
-int		*ft_tab(char *s);
-void	check_argv(char *s);
-void	check_zero(char *s); ///Представления ноля через несколько нолей считаем ошибкой
+void				check_chars(char *s);
+int					intnum(char *s);
+void				check_tab(int *tab, int size);
+int					*ft_tab(char *s);
+void				check_argv(char *s);
+void				check_zero(char *s); ///Представления ноля через несколько нолей считаем ошибкой
+
+int					ft_strcmp(char *s1, char *s2);
+void				ft_fatality(void *t);
+void				nachalo_detected(int *tab, int size);

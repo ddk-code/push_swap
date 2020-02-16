@@ -6,11 +6,31 @@
 /*   By: pcharlot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/04 16:46:24 by pcharlot          #+#    #+#             */
-/*   Updated: 2020/02/16 12:11:16 by pcharlot         ###   ########.fr       */
+/*   Updated: 2020/02/16 15:08:14 by pcharlot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	check_argv(char *s)
+{
+	int i;
+	int checker;
+
+	i = 0;
+	checker = 0;
+	while(s[i])
+	{
+		if(is_digit09(s[i]))
+			++checker;
+		++i;
+	}
+	if (checker == 0)
+	{
+		write(2, "Error: минимум в одном переданном параметре отсутствуют цифры.", 110); ///проверка каждого аргв перед склейкой в общую строку. Если цифры вообще отсутствуют - выдает ошибку
+		exit (0);
+	}
+}
 
 int 	main(int argc, char **argv)
 {
@@ -71,8 +91,9 @@ int 	main(int argc, char **argv)
 //	printf("%ld\n", ft_atoi(inmi));
 //	printf("%ld\n", ft_atoi(inma));
 
-	t_stack *st;
-	st = NULL;
+	nachalo_detected(tab, intnum(s));
+//	t_stack *st;
+//	st = NULL;
 
 	return (0);
 }
