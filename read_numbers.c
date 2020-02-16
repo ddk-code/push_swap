@@ -6,7 +6,7 @@
 /*   By: pcharlot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/16 11:13:21 by pcharlot          #+#    #+#             */
-/*   Updated: 2020/02/16 11:24:14 by pcharlot         ###   ########.fr       */
+/*   Updated: 2020/02/16 13:04:49 by pcharlot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,25 @@ int 	intnum(char *s);
 void	check_tab(int *tab, int size);
 int		*ft_tab(char *s);
 
+void	check_argv(char *s)
+{
+	int i;
+	int checker;
+
+	i = 0;
+	checker = 0;
+	while(s[i])
+	{
+		if(is_digit09(s[i]))
+			++checker;
+		++i;
+	}
+	if (checker == 0)
+	{
+		write(2, "Error: минимум в одном переданном параметре отсутствуют цифры.", 110); ///проверка каждого аргв перед склейкой в общую строку. Если цифры вообще отсутствуют - выдает ошибку
+		exit (0);
+	}
+}
 
 void	check_chars(char *s) ///если есть что-то, кроме цифр/знаков/пробелов - выдает ошибку
 {
@@ -46,6 +65,11 @@ int intnum(char *s) //подсчитывает количество цифр в 
 	{
 		if(is_digit09(s[i]) && (ft_isspace(s[i + 1]) || s[i + 1] == '\0'))
 			++dig_numbers;
+		if(is_digit09(s[i]) && !(is_digit09(s[i + 1]) || ft_isspace(s[i + 1]) || s[i + 1] == '\0')) ///если после цифры идет что-то, отличное от цифры или пробела или \0 - ошибка!!!
+		{
+			write(2, "Error: некорректное продолжение числа.", 66);
+			exit(0);
+		}
 		++i;
 	}
 	if (dig_numbers == 0)
@@ -73,7 +97,7 @@ void	check_tab(int *tab, int size)
 				++j;
 			else
 			{
-				write(2, "Error: среди переданных чисел есть одинаковые.", 46);
+				write(2, "Error: среди переданных чисел есть одинаковые.", 80);
 				exit (0);
 			}
 		}
