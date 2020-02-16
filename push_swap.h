@@ -6,7 +6,7 @@
 /*   By: pcharlot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/04 16:46:31 by pcharlot          #+#    #+#             */
-/*   Updated: 2020/02/16 18:40:28 by pcharlot         ###   ########.fr       */
+/*   Updated: 2020/02/16 19:50:28 by pcharlot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,11 @@ void	add_new_down(t_stack **st, int digit);
 
 void	sa(t_stack **st_a);
 void	sb(t_stack **st_b); ///удалить в будущем
-
+/// !!!! дописать ss
 void	pa(t_stack **st_a, t_stack **st_b);
 void	pb(t_stack **st_b, t_stack **st_a); ///удалить в будущем
+
+void	ra(t_stack **st_a);
+void	rb(t_stack **st_b);
+/// !!! дописать rr
+

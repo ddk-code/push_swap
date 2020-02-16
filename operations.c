@@ -6,7 +6,7 @@
 /*   By: pcharlot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/16 14:28:22 by pcharlot          #+#    #+#             */
-/*   Updated: 2020/02/16 18:35:30 by pcharlot         ###   ########.fr       */
+/*   Updated: 2020/02/16 19:50:28 by pcharlot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,5 +53,26 @@ void	pb(t_stack **st_b, t_stack **st_a) ///pb : push b - take the first element 
 	{
 		add_new(st_b, (*st_a)->nbr);
 		dell_top(st_a);
+	}
+}
+
+void	ra(t_stack **st_a) ///ra : rotate a - shift up all elements of stack a by 1. The first element becomes the last one.
+{
+	t_stack	*temp;
+
+	if((*st_a)->next)
+	{
+		temp = *st_a;
+		add_new_down(st_a, (*st_a)->nbr);
+		dell_top(st_a);
+	}
+}
+
+void	rb(t_stack **st_b) ///rb : rotate b - shift up all elements of stack b by 1. The first element becomes the last one.
+{
+	if((*st_b)->next)
+	{
+		add_new_down(st_b, (*st_b)->nbr);
+		dell_top(st_b);
 	}
 }
