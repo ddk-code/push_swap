@@ -60,7 +60,7 @@ void	ra(t_stack **st_a) ///ra : rotate a - shift up all elements of stack a by 1
 {
 	t_stack	*temp;
 
-	if((*st_a)->next)
+	if(*st_a && (*st_a)->next)
 	{
 		temp = *st_a;
 		add_new_down(st_a, (*st_a)->nbr);
@@ -70,7 +70,7 @@ void	ra(t_stack **st_a) ///ra : rotate a - shift up all elements of stack a by 1
 
 void	rb(t_stack **st_b) ///rb : rotate b - shift up all elements of stack b by 1. The first element becomes the last one.
 {
-	if((*st_b)->next)
+	if(*st_b && (*st_b)->next)
 	{
 		add_new_down(st_b, (*st_b)->nbr);
 		dell_top(st_b);
