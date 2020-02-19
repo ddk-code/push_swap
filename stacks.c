@@ -6,7 +6,7 @@
 /*   By: pcharlot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/16 14:29:37 by pcharlot          #+#    #+#             */
-/*   Updated: 2020/02/19 08:25:45 by pcharlot         ###   ########.fr       */
+/*   Updated: 2020/02/19 11:06:50 by pcharlot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ void	dell_top(t_stack **st)
 void	add_new_down(t_stack **st, int digit)
 {
 	t_stack	*temp;
-	t_stack *prev;
+//	t_stack *prev;
 	t_stack	*new;
 
 	new = (t_stack *)malloc(sizeof(t_stack));
@@ -62,10 +62,37 @@ void	add_new_down(t_stack **st, int digit)
 
 	while(temp->next)
 	{
-		prev = temp;
+//		prev = temp;
 		temp = temp->next;
 	}
 	temp->next = new;
+}
+
+void	dell_down(t_stack **st)
+{
+	t_stack	*temp;
+	t_stack *prev;
+
+	if (*st)
+	{
+		if ((*st)->next)
+		{
+			temp = *st;
+			prev = *st;
+			while (temp->next) {
+				prev = temp;
+				temp = temp->next;
+			}
+			prev->next = NULL;
+			free(temp);
+		}
+		else
+			{
+			free(*st);
+			*st = NULL; ///без этой строки ну просто трындец как все ломается =(
+			}
+
+	}
 }
 
 void	nachalo_detected(int *tab, int size)
@@ -155,10 +182,41 @@ void	nachalo_detected(int *tab, int size)
 //	print_stack(st_a);
 
 
-	ra(&st_a);
-	printf("\nstack a after ra:\n");
-	print_stack(st_a);
+//	ra(&st_a);
+//	printf("\nstack a after ra:\n");
+//	print_stack(st_a);
+//
+//	rb(&st_b);
 
-	rb(&st_b);
+//	dell_down(&st_a);
+//	dell_down(&st_a);
+//	dell_down(&st_a);
+//	dell_down(&st_a);
+//	dell_down(&st_a);
+//	dell_down(&st_a);
+//	dell_down(&st_a);
+//	printf("\nstack a after dell_down:\n");
+//	print_stack(st_a);
+
+
+
+//	dell_top(&st_a);
+//	dell_top(&st_a);
+//	dell_top(&st_a);
+//	dell_top(&st_a);
+//	dell_top(&st_a);
+//	dell_top(&st_a);
+//	printf("\nstack a after dell_top:\n");
+//	print_stack(st_a);
+
+
+//	ra(&st_a);
+//	printf("\nstack a after ra:\n");
+//	print_stack(st_a);
+//
+//	rra(&st_a);
+//	printf("\nstack a after rra:\n");
+//	print_stack(st_a);
+
 
 }

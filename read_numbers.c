@@ -12,11 +12,6 @@
 
 #include "push_swap.h"
 
-//void	check_chars(char *s);
-//int 	intnum(char *s);
-//void	check_tab(int *tab, int size);
-//int		*ft_tab(char *s);
-
 void	check_zero(char *s)
 {
 	int i;
