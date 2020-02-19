@@ -6,7 +6,7 @@
 /*   By: pcharlot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/04 16:46:31 by pcharlot          #+#    #+#             */
-/*   Updated: 2020/02/19 11:07:14 by pcharlot         ###   ########.fr       */
+/*   Updated: 2020/02/19 11:34:04 by pcharlot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,3 +76,7 @@ void	rra(t_stack **st_a);
 void	rrb(t_stack **st_b);
 /// rrr
 
+
+void	swapi(int *a, int *b);
+void	kuku(int *tab, int size, t_stack **a, t_stack **b);
+void 	printab(int *t, int s);

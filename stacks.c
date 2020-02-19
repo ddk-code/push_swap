@@ -6,7 +6,7 @@
 /*   By: pcharlot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/16 14:29:37 by pcharlot          #+#    #+#             */
-/*   Updated: 2020/02/19 12:51:28 by pcharlot         ###   ########.fr       */
+/*   Updated: 2020/02/19 13:37:05 by pcharlot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -236,5 +236,7 @@ void	nachalo_detected(int *tab, int size)
 
 	printf("\nstack b:\n");
 	print_stack(st_b);
+
+	kuku(tab, size, st_a, st_b);
 
 }
