@@ -6,7 +6,7 @@
 /*   By: pcharlot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/19 12:07:25 by pcharlot          #+#    #+#             */
-/*   Updated: 2020/02/19 12:20:24 by pcharlot         ###   ########.fr       */
+/*   Updated: 2020/02/19 12:38:56 by pcharlot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,5 +61,49 @@ void	pb(t_stack **st_b, t_stack **st_a) ///pb : push b - take the first element 
 		*st_a = (*st_a)->next;
 		temp->next = *st_b;
 		*st_b = temp;
+	}
+}
+
+void	ra(t_stack **st_a) ///ra : rotate a - shift up all elements of stack a by 1. The first element becomes the last one.
+{
+	t_stack	*temp;
+
+	if(*st_a && (*st_a)->next)
+	{
+		temp = *st_a;
+		while(temp->next)
+			temp = temp->next;
+		temp->next = *st_a;
+		*st_a = (*st_a)->next;
+		temp->next->next = NULL;
+	}
+}
+
+void	rb(t_stack **st_b) ///rb : rotate b - shift up all elements of stack b by 1. The first element becomes the last one.
+{
+	t_stack	*temp;
+
+	if(*st_b && (*st_b)->next)
+	{
+		temp = *st_b;
+		while(temp->next)
+			temp = temp->next;
+		temp->next = *st_b;
+		*st_b = (*st_b)->next;
+		temp->next->next = NULL;
+	}
+}
+
+void	rra(t_stack **st_a) ///reverse rotate a - shift down all elements of stack a by 1. The last element becomes the first one.
+{
+	t_stack	*temp;
+
+	if (*st_a && (*st_a)->next)
+	{
+		temp = *st_a;
+		while (temp->next)
+			temp = temp->next;
+		add_new(st_a, temp->nbr);
+		dell_down(st_a);
 	}
 }

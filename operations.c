@@ -6,7 +6,7 @@
 /*   By: pcharlot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/16 14:28:22 by pcharlot          #+#    #+#             */
-/*   Updated: 2020/02/19 12:20:24 by pcharlot         ###   ########.fr       */
+/*   Updated: 2020/02/19 12:38:09 by pcharlot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,26 +56,26 @@
 //	}
 //}
 
-void	ra(t_stack **st_a) ///ra : rotate a - shift up all elements of stack a by 1. The first element becomes the last one.
-{
-	t_stack	*temp;
+//void	ra(t_stack **st_a) ///ra : rotate a - shift up all elements of stack a by 1. The first element becomes the last one.
+//{
+//	t_stack	*temp;
+//
+//	if(*st_a && (*st_a)->next)
+//	{
+//		temp = *st_a;
+//		add_new_down(st_a, (*st_a)->nbr);
+//		dell_top(st_a);
+//	}
+//}
 
-	if(*st_a && (*st_a)->next)
-	{
-		temp = *st_a;
-		add_new_down(st_a, (*st_a)->nbr);
-		dell_top(st_a);
-	}
-}
-
-void	rb(t_stack **st_b) ///rb : rotate b - shift up all elements of stack b by 1. The first element becomes the last one.
-{
-	if(*st_b && (*st_b)->next)
-	{
-		add_new_down(st_b, (*st_b)->nbr);
-		dell_top(st_b);
-	}
-}
+//void	rb(t_stack **st_b) ///rb : rotate b - shift up all elements of stack b by 1. The first element becomes the last one.
+//{
+//	if(*st_b && (*st_b)->next)
+//	{
+//		add_new_down(st_b, (*st_b)->nbr);
+//		dell_top(st_b);
+//	}
+//}
 
 void	rra(t_stack **st_a) ///reverse rotate a - shift down all elements of stack a by 1. The last element becomes the first one.
 {
