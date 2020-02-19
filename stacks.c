@@ -6,7 +6,7 @@
 /*   By: pcharlot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/16 14:29:37 by pcharlot          #+#    #+#             */
-/*   Updated: 2020/02/19 11:06:50 by pcharlot         ###   ########.fr       */
+/*   Updated: 2020/02/19 12:19:32 by pcharlot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -155,15 +155,15 @@ void	nachalo_detected(int *tab, int size)
 //	printf("\nstack b:\n");
 //	print_stack(st_b);
 
-//	pb(&st_b, &st_a);
-//	pb(&st_b, &st_a);
-//	printf("\n____pb*2____");
-//
-//	printf("\nstack a:\n");
-//	print_stack(st_a);
-//
-//	printf("\nstack b:\n");
-//	print_stack(st_b);
+	pb(&st_b, &st_a);
+	pb(&st_b, &st_a);
+	printf("\n____pb*2____");
+
+	printf("\nstack a:\n");
+	print_stack(st_a);
+
+	printf("\nstack b:\n");
+	print_stack(st_b);
 //
 //	pa(&st_a, &st_b);
 //	pa(&st_a, &st_b);
@@ -218,5 +218,48 @@ void	nachalo_detected(int *tab, int size)
 //	printf("\nstack a after rra:\n");
 //	print_stack(st_a);
 
+//	sa(&st_a);
+//	printf("\nstack a:\n");
+//	print_stack(st_a);
+//
+//	printf("\nstack b:\n");
+//	print_stack(st_b);
+//
+//	pb(&st_b, &st_a);
+//	pb(&st_b, &st_a);
+//	pb(&st_b, &st_a);
+//	printf("\nstack a:\n");
+//	print_stack(st_a);
+//
+//	printf("\nstack b:\n");
+//	print_stack(st_b);
+//	ra(&st_a);
+//	rb(&st_b);
+//
+//	printf("\nstack a:\n");
+//	print_stack(st_a);
+//
+//	printf("\nstack b:\n");
+//	print_stack(st_b);
+//
+//	rra(&st_a);
+//	rrb(&st_b);
+//
+//	printf("\nstack a:\n");
+//	print_stack(st_a);
+//
+//	printf("\nstack b:\n");
+//	print_stack(st_b);
+//
+//	sa(&st_a);
+//	pa(&st_a, &st_b);
+//	pa(&st_a, &st_b);
+//	pa(&st_a, &st_b);
+//
+//	printf("\nstack a:\n");
+//	print_stack(st_a);
+//
+//	printf("\nstack b:\n");
+//	print_stack(st_b);
 
 }
