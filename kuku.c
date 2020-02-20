@@ -61,6 +61,7 @@ void	kuku(int *tab, int size, t_stack **a, t_stack **b)
 {
 	int	sort[size];
 	int i;
+	int temp;
 
 	i = 0;
 	while(i < size)
@@ -83,5 +84,57 @@ void	kuku(int *tab, int size, t_stack **a, t_stack **b)
 	printf("\nposition of %d: %d", tab[5], pos(*a, tab[5]));
 	printf("\nposition of %d: %d", tab[1], pos(*a, tab[1]));
 	printf("\nposition of %d: %d", tab[0], pos(*a, tab[0]));
+	printf("\nposition of %d: %d", tab[3], pos(*a, tab[3]));
+
+	i = 0;
+	temp = 0;
+	while (i < size)
+	{
+		if (pos(*a, sort[i]) == 1)
+			pb(b, a);
+		else if (pos(*a, sort[i]) == 2)
+		{
+			sa(a);
+			pb(b, a);
+		}
+		else if (pos(*a, sort[i]) <= (int)(size / 2))
+		{
+			temp = pos(*a, sort[i]) - 1;
+			while(temp > 0)
+			{
+				ra(a);
+				--temp;
+			}
+			pb(b, a);
+		}
+		else if (pos(*a, sort[i]) > (int)(size / 2))
+		{
+			temp = pos(*a, sort[i]) - 1;
+			while(temp > 0)
+			{
+				rra(a);
+				--temp;
+			}
+			pb(b, a);
+		}
+		++i;
+	}
+	printf("\nstack a after sorting:\n");
+	print_stack(*a);
+
+	printf("\nstack b after sorting:\n");
+	print_stack(*b);
+	i = 0;
+	while (i < size)
+	{
+		pa(a, b);
+		++i;
+	}
+	printf("\n");
+	printf("\nstack a at final:\n");
+	print_stack(*a);
+
+	printf("\nstack b at final:\n");
+	print_stack(*b);
 
 }

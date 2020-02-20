@@ -19,7 +19,7 @@ void	print_stack(t_stack *st)
 	temp = st;
 	while(temp)
 	{
-		printf("%d\n", temp->nbr);
+		printf("%d ", temp->nbr);
 		temp = temp->next;
 	}
 }
