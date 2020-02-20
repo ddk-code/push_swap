@@ -218,25 +218,26 @@ void	nachalo_detected(int *tab, int size)
 
 
 
-	sa(&st_a);
-	pb(&st_b, &st_a);
-	pb(&st_b, &st_a);
-	pb(&st_b, &st_a);
-	ra(&st_a);
-	rb(&st_b);
-	rra(&st_a);
-	rrb(&st_b);
-	sa(&st_a);
-	pa(&st_a, &st_b);
-	pa(&st_a, &st_b);
-	pa(&st_a, &st_b);
-
-	printf("\nstack a:\n");
-	print_stack(st_a);
-
-	printf("\nstack b:\n");
-	print_stack(st_b);
-
+//	sa(&st_a);
+//	pb(&st_b, &st_a);
+//	pb(&st_b, &st_a);
+//	pb(&st_b, &st_a);
+//	ra(&st_a);
+//	rb(&st_b);
+//	rra(&st_a);
+//	rrb(&st_b);
+//	sa(&st_a);
+//	pa(&st_a, &st_b);
+//	pa(&st_a, &st_b);
+//	pa(&st_a, &st_b);
+//
+//	printf("\nstack a:\n");
+//	print_stack(st_a);
+//
+//	printf("\nstack b:\n");
+//	print_stack(st_b);
+//
 	kuku(tab, size, &st_a, &st_b);
+
 
 }

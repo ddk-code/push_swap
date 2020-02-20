@@ -32,9 +32,6 @@ int					ft_strlen(char *s);
 char				*ft_strjoin(char *s1, char *s2);
 
 
-#endif
-
-
 int					ft_digcount(long long nbr);
 int					is_digit09(char c);
 int					is_digit19(char c);
@@ -79,4 +76,16 @@ void	rrb(t_stack **st_b);
 
 void	swapi(int *a, int *b);
 void	kuku(int *tab, int size, t_stack **a, t_stack **b);
-void 	printab(int *t, int s);
+void    print_tab(int *t, int s);
+
+//typedef	struct		s_list
+//{
+//    int				data;
+//    struct s_list	*next;
+//}					t_list;
+
+t_stack	*sort_list(t_stack* lst);
+int		ascending(int a, int b);
+
+#endif
+
