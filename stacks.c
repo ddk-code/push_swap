@@ -117,12 +117,13 @@ void	nachalo_detected(int *tab, int size)
 		add_new(&st_a, tab[i]);
 		++i;
 	}
+	printf("__________________________");
 	printf("\nstack a:\n");
 	print_stack(st_a);
 
 	printf("\nstack b:\n");
 	print_stack(st_b);
-
+	printf("__________________________\n\n");
 //	dell_top(&st_a);
 //	printf("\nDelTopA:\n");
 //	print_stack(st_a);
@@ -236,7 +237,7 @@ void	nachalo_detected(int *tab, int size)
 //
 //	printf("\nstack b:\n");
 //	print_stack(st_b);
-//
+
 	kuku(tab, size, &st_a, &st_b);
 
 

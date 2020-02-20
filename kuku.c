@@ -57,6 +57,23 @@ int		pos(t_stack *st, int nbr)
 	return (i);
 }
 
+int issort(t_stack *st)
+{
+	t_stack *temp;
+
+	temp = st;
+	if(!temp->next)
+		return (0);
+	while(temp && temp->next)
+	{
+		if (temp->nbr < temp->next->nbr)
+			temp = temp->next;
+		else
+			return (1);
+	}
+	return (0);
+}
+
 void	kuku(int *tab, int size, t_stack **a, t_stack **b)
 {
 	int	sort[size];
@@ -79,58 +96,54 @@ void	kuku(int *tab, int size, t_stack **a, t_stack **b)
 		}
 		++i;
 	}
-    print_tab(tab, size);
-    print_tab(sort, size);
-	printf("\nposition of %d: %d", tab[5], pos(*a, tab[5]));
-	printf("\nposition of %d: %d", tab[1], pos(*a, tab[1]));
-	printf("\nposition of %d: %d", tab[0], pos(*a, tab[0]));
-	printf("\nposition of %d: %d", tab[3], pos(*a, tab[3]));
+//    print_tab(tab, size);
+//    print_tab(sort, size);
+//	printf("\nposition of %d: %d", tab[5], pos(*a, tab[5]));
+//	printf("\nposition of %d: %d", tab[1], pos(*a, tab[1]));
+//	printf("\nposition of %d: %d", tab[0], pos(*a, tab[0]));
+//	printf("\nposition of %d: %d", tab[3], pos(*a, tab[3]));
 
 	i = 0;
 	temp = 0;
-	while (i < size)
+	if (issort(*a))
 	{
-		if (pos(*a, sort[i]) == 1)
-			pb(b, a);
-		else if (pos(*a, sort[i]) == 2)
-		{
-			sa(a);
-			pb(b, a);
-		}
-		else if (pos(*a, sort[i]) <= (int)(size / 2))
-		{
-			temp = pos(*a, sort[i]) - 1;
-			while(temp > 0)
-			{
-				ra(a);
-				--temp;
+		while (i < size) {
+			if (pos(*a, sort[i]) == 1)
+				pb(b, a);
+			else if (pos(*a, sort[i]) == 2) {
+				sa(a);
+				pb(b, a);
+			} else if (pos(*a, sort[i]) <= (int) (size / 2)) {
+				temp = pos(*a, sort[i]) - 1;
+				while (temp > 0) {
+					ra(a);
+					--temp;
+				}
+				pb(b, a);
+			} else if (pos(*a, sort[i]) > (int) (size / 2)) {
+				temp = pos(*a, sort[i]) - 1;
+				while (temp > 0) {
+					rra(a);
+					--temp;
+				}
+				pb(b, a);
 			}
-			pb(b, a);
+			++i;
 		}
-		else if (pos(*a, sort[i]) > (int)(size / 2))
-		{
-			temp = pos(*a, sort[i]) - 1;
-			while(temp > 0)
-			{
-				rra(a);
-				--temp;
-			}
-			pb(b, a);
-		}
-		++i;
 	}
-	printf("\nstack a after sorting:\n");
-	print_stack(*a);
-
-	printf("\nstack b after sorting:\n");
-	print_stack(*b);
-	i = 0;
-	while (i < size)
-	{
-		pa(a, b);
-		++i;
-	}
+//	printf("\nstack a after sorting:\n");
+//	print_stack(*a);
+//
+//	printf("\nstack b after sorting:\n");
+//	print_stack(*b);
+//	i = 0;
+//	while (i < size)
+//	{
+//		pa(a, b);
+//		++i;
+//	}
 	printf("\n");
+	printf("__________________________\n");
 	printf("\nstack a at final:\n");
 	print_stack(*a);
 

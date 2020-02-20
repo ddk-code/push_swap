@@ -61,8 +61,8 @@ int 	main(int argc, char **argv)
 		s = ft_strjoin(s, sp); ///разделяем аргументы пробелом
 		++i;
 	}
-	printf("\ns:  [%s]\n", s);
-	printf("ints: %d\n\n", intnum(s));
+//	printf("\ns:  [%s]\n", s);
+//	printf("ints: %d\n\n", intnum(s));
 
 
 	int *tab;

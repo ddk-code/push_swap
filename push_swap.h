@@ -84,6 +84,10 @@ void    print_tab(int *t, int s);
 //    struct s_list	*next;
 //}					t_list;
 
+int		pos(t_stack *st, int nbr);
+int		issort(t_stack *st);
+
+///exam:
 t_stack	*sort_list(t_stack* lst);
 int		ascending(int a, int b);
 
