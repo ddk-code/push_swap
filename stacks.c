@@ -237,6 +237,6 @@ void	nachalo_detected(int *tab, int size)
 	printf("\nstack b:\n");
 	print_stack(st_b);
 
-	kuku(tab, size, st_a, st_b);
+	kuku(tab, size, &st_a, &st_b);
 
 }
