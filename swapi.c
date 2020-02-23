@@ -1,28 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_digcount.c                                      :+:      :+:    :+:   */
+/*   swapi.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pcharlot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/13 13:38:37 by pcharlot          #+#    #+#             */
-/*   Updated: 2020/02/20 10:04:32 by pcharlot         ###   ########.fr       */
+/*   Created: 2020/02/23 12:02:34 by pcharlot          #+#    #+#             */
+/*   Updated: 2020/02/23 17:06:34 by pcharlot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int		ft_digcount(long long nbr)
+void	swapi(int *a, int *b)
 {
-	int i;
+	int tmp;
 
-	i = 0;
-	if (nbr == 0)
-		return (1);
-	while (nbr)
-	{
-		++i;
-		nbr = nbr / 10;
-	}
-	return (i);
+	tmp = *a;
+	*a = *b;
+	*b = tmp;
 }

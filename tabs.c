@@ -1,25 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   tabs.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pcharlot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/23 12:04:27 by pcharlot          #+#    #+#             */
-/*   Updated: 2020/02/23 17:06:34 by pcharlot         ###   ########.fr       */
+/*   Created: 2020/02/23 15:20:29 by pcharlot          #+#    #+#             */
+/*   Updated: 2020/02/23 15:20:30 by pcharlot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_bzero(void *s, size_t n)
+void    print_tab(int *tab, int size)
 {
-	size_t	i;
+	int i;
 
 	i = 0;
-	while (i < n)
+	printf("\narray:");
+	while(i < size)
 	{
-		((unsigned char *)s)[i] = 0;
-		i++;
+		printf(" %d", tab[i]);
+		++i;
+	}
+	printf("\n");
+}
+
+void	sort_tab(int **tab, int size)
+{
+	int i;
+	int *temp;
+
+	temp = *tab;
+	i = 0;
+	while(i < size - 1)
+	{
+		if (temp[i] > temp[i + 1])
+		{
+			swapi(&temp[i], &temp[i + 1]);
+			i = -1;
+		}
+		++i;
 	}
 }

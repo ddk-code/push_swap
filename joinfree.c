@@ -1,25 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   joinfree.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pcharlot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/23 12:04:27 by pcharlot          #+#    #+#             */
-/*   Updated: 2020/02/23 17:06:34 by pcharlot         ###   ########.fr       */
+/*   Created: 2020/02/23 11:57:36 by pcharlot          #+#    #+#             */
+/*   Updated: 2020/02/23 11:57:37 by pcharlot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_bzero(void *s, size_t n)
+char	*joinfree(char *s1, char *s2)
 {
-	size_t	i;
+	char	*res;
+	int		i;
+	int		len1;
 
 	i = 0;
-	while (i < n)
+	len1 = ft_strlen(s1);
+	res = (char *)malloc(len1 + ft_strlen(s2) + 1);
+	while (s1[i])
 	{
-		((unsigned char *)s)[i] = 0;
-		i++;
+		res[i] = s1[i];
+		++i;
 	}
+	while (s2[i - len1])
+	{
+		res[i] = s2[i - len1];
+		++i;
+	}
+	res[i] = '\0';
+	free(s1);
+	return (res);
 }

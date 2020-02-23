@@ -5,11 +5,10 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: pcharlot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/04 16:46:31 by pcharlot          #+#    #+#             */
-/*   Updated: 2020/02/20 10:04:32 by pcharlot         ###   ########.fr       */
+/*   Created: 2020/02/23 10:57:26 by pcharlot          #+#    #+#             */
+/*   Updated: 2020/02/23 18:46:19 by pcharlot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #ifndef PUSH_SWAP_H
 #define PUSH_SWAP_H
@@ -24,35 +23,60 @@
 typedef struct		s_stack
 {
 	int				nbr;
+	int 			i;
+	int 			flag;
 	struct s_stack	*next;
+	struct s_stack	*prev;
 
 }					t_stack;
 
+typedef struct		s_data
+{
+	t_stack 		*a;
+	t_stack 		*a_down;
+	t_stack 		*b;
+	t_stack 		*b_down;
+	int 			*sort;
+	int 			size;
+	int				a_len;
+	int 			b_len;
+	int 			a_mid;
+	int 			b_mid;
+}					t_data;
+
+
+
+int					is09(char c);
+int					is19(char c);
+char				*joinfree(char *s1, char *s2);
+int					digcount(long long nbr);
 int					ft_strlen(char *s);
-char				*ft_strjoin(char *s1, char *s2);
+void				fatality(void *t);
+int					issp(char c);
+void				swapi(int *a, int *b);
+void				ft_bzero(void *s, size_t n); ///она нужна вообще?
+int					ft_strcmp(char *s1, char *s2); ///она нужна вообще?
+
+void				nachalo_detected(char *s);
 
 
-int					ft_digcount(long long nbr);
-int					is_digit09(char c);
-int					is_digit19(char c);
-void				ft_bzero(void *s, size_t n);
-int					ft_isspace(char c);
+
 
 long long			atosh(char *s, int *i); ///подумать над обработкой максимального и минимального интов ? возможно - решено
 
-
 void				check_chars(char *s);
-int					intnum(char *s);
+int					int_count(char *s);
 void				check_tab(int *tab, int size);
-int					*ft_tab(char *s);
-void				check_argv(char *s);
-void				check_zero(char *s); ///Представления ноля через несколько нолей считаем ошибкой
 
-int					ft_strcmp(char *s1, char *s2);
+void				init_tab(char *s, t_data **data);
 
-void				ft_fatality(void *t);
 
-void	nachalo_detected(int *tab, int size);
+
+void    print_tab(int *tab, int size);
+void	sort_tab(int **tab, int size);
+
+
+
 void	print_stack(t_stack *st);
 void	add_new(t_stack **st, int digit);
 void	dell_top(t_stack **st);
@@ -74,9 +98,9 @@ void	rrb(t_stack **st_b);
 /// rrr
 
 
-void	swapi(int *a, int *b);
+
 void	kuku(int *tab, int size, t_stack **a, t_stack **b);
-void    print_tab(int *t, int s);
+
 
 //typedef	struct		s_list
 //{
