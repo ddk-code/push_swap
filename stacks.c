@@ -6,7 +6,7 @@
 /*   By: pcharlot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/23 13:50:04 by pcharlot          #+#    #+#             */
-/*   Updated: 2020/03/01 14:10:35 by pcharlot         ###   ########.fr       */
+/*   Updated: 2020/03/01 14:42:54 by pcharlot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,9 +71,20 @@ void 	set_a(t_data **data)
 {
 	int i;
 	t_stack *temp;
+	t_stack *prev;
 
 	(*data)->a = init_node(*data, (*data)->tabb[0]);
-	temp = (*data)->a;
+	prev = (*data)->a;
+	temp = (*data)->a->next;
 	i  = 1;
+	while (i < (*data)->size)
+	{
+		temp = init_node(*data, (*data)->tabb[i]);
+		temp->prev = prev;
+		prev->next = temp;
+		++i;
+		temp = temp->next;
+		prev = prev->next;
+	}
 
 }

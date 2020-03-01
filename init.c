@@ -6,7 +6,7 @@
 /*   By: pcharlot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/23 17:18:08 by pcharlot          #+#    #+#             */
-/*   Updated: 2020/03/01 14:13:03 by pcharlot         ###   ########.fr       */
+/*   Updated: 2020/03/01 14:46:23 by pcharlot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,8 +71,8 @@ void		nachalo_detected(char *s)
 	print_tab(data->sort, data->size);
 //	printf("%d", data->size);
 	set_a(&data);
-//	printf("%d\n", data->a->nbr);
-//	printf("%d", data->a->i);
+	printf("%d\n", data->a->next->next->next->next->next->next->next->nbr);
+	printf("%d", data->a->next->next->next->next->next->next->next->i);
 
 
 
