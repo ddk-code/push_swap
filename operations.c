@@ -6,11 +6,39 @@
 /*   By: pcharlot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/23 17:14:32 by pcharlot          #+#    #+#             */
-/*   Updated: 2020/02/23 17:15:21 by pcharlot         ###   ########.fr       */
+/*   Updated: 2020/03/01 12:03:48 by pcharlot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+/*
+typedef struct		s_data
+{
+	t_stack 		*a;
+	t_stack 		*a_down;
+	t_stack 		*b;
+	t_stack 		*b_down;
+	int 			*tabb;
+	int 			*sort;
+	int 			size;
+	int				a_len;
+	int 			b_len;
+	int 			a_mid;
+	int 			b_mid;
+}					t_data;
+
+ typedef struct		s_stack
+{
+	int				nbr;
+	int 			i;
+	int 			flag;
+	struct s_stack	*next;
+	struct s_stack	*prev;
+
+}					t_stack;
+
+*/
 
 void	sa(t_stack **st_a) ///swap a - swap the first 2 elements at the top of stack a. Do nothing if there is only one or no elements).
 {

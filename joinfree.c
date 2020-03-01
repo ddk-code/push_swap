@@ -21,6 +21,7 @@ char	*joinfree(char *s1, char *s2)
 	i = 0;
 	len1 = ft_strlen(s1);
 	res = (char *)malloc(len1 + ft_strlen(s2) + 1);
+	fatality(res);
 	while (s1[i])
 	{
 		res[i] = s1[i];

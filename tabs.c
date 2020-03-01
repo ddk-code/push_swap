@@ -6,7 +6,7 @@
 /*   By: pcharlot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/23 15:20:29 by pcharlot          #+#    #+#             */
-/*   Updated: 2020/02/23 15:20:30 by pcharlot         ###   ########.fr       */
+/*   Updated: 2020/03/01 13:22:18 by pcharlot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,4 +42,18 @@ void	sort_tab(int **tab, int size)
 		}
 		++i;
 	}
+}
+
+int		ind(int *tab, int size, int value)
+{
+	int i;
+
+	i = 0;
+	while(i < size)
+	{
+		if (tab[i] == value)
+			break ;
+		++i;
+	}
+	return (i + 1);
 }

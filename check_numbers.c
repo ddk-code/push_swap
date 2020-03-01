@@ -6,7 +6,7 @@
 /*   By: pcharlot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/23 13:57:44 by pcharlot          #+#    #+#             */
-/*   Updated: 2020/02/23 19:12:50 by pcharlot         ###   ########.fr       */
+/*   Updated: 2020/03/01 13:25:32 by pcharlot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,10 +99,11 @@ void	init_tab(char *s, t_data **data) ///собирает массив инто�
 	i = 0;
 	check_chars(s);
 	(*data)->size = int_count(s);
-	(*data)->sort = malloc(sizeof(int) * (*data)->size);
+	(*data)->tabb = malloc(sizeof(int) * (*data)->size);
+	fatality((*data)->tabb);
 	while (j < (*data)->size)
 	{
-		(*data)->sort[j] = atosh(s, &i);
+		(*data)->tabb[j] = atosh(s, &i);
 		if (!issp(s[i]))
 		{
 			write(2, "Error_9: среди переданных чисел есть некорректные!", 84); /// Тут вариант чисел, когда внутри цифр есть +/- Другие варианты отсеиваются при проверке символов по строке
@@ -110,5 +111,21 @@ void	init_tab(char *s, t_data **data) ///собирает массив инто�
 		}
 		++j;
 	}
-	check_tab((*data)->sort, (*data)->size);
+	check_tab((*data)->tabb, (*data)->size);
+	init_sort(data);
+}
+
+void	init_sort(t_data **data)
+{
+	int	i;
+
+	(*data)->sort = malloc(sizeof(int) * (*data)->size);
+	fatality((*data)->sort);
+	i = 0;
+	while (i < (*data)->size)
+	{
+		(*data)->sort[i] = (*data)->tabb[i];
+		++i;
+	}
+	sort_tab(&(*data)->sort, (*data)->size);
 }

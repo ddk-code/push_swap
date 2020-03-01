@@ -6,9 +6,37 @@
 /*   By: pcharlot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/23 12:08:29 by pcharlot          #+#    #+#             */
-/*   Updated: 2020/02/23 19:14:11 by pcharlot         ###   ########.fr       */
+/*   Updated: 2020/03/01 13:41:15 by pcharlot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+/*
+typedef struct		s_data
+{
+	t_stack 		*a;
+	t_stack 		*a_down;
+	t_stack 		*b;
+	t_stack 		*b_down;
+	int 			*tabb;
+	int 			*sort;
+	int 			size;
+	int				a_len;
+	int 			b_len;
+	int 			a_mid;
+	int 			b_mid;
+}					t_data;
+
+ typedef struct		s_stack
+{
+	int				nbr;
+	int 			i;
+	int 			flag;
+	struct s_stack	*next;
+	struct s_stack	*prev;
+
+}					t_stack;
+
+*/
 
 #include "push_swap.h"
 
@@ -44,6 +72,7 @@ int			main(int argc, char **argv)
 		return (0);
 	}
 	s = (char *)malloc(sizeof(char));
+	fatality(s);
 	s[0] = '\0';
 //	printf("len s = %d\n", ft_strlen(s));
 //	s = ft_strjoin(s, argv[1]);
@@ -52,6 +81,7 @@ int			main(int argc, char **argv)
 
 	i = 1;
 	space = (char *)malloc(sizeof(char) * 2);
+	fatality(space);
 	space[0] = ' ';
 	space[1] = '\0';
 	while (argc > i)
@@ -65,7 +95,7 @@ int			main(int argc, char **argv)
 //	printf("\ns:  [%s]\n", s);
 //	printf("ints: %d\n\n", int_count(s));
 	nachalo_detected(s);
-	free(s);
+//	free(s);
 
 
 

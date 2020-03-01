@@ -6,7 +6,7 @@
 /*   By: pcharlot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/23 10:57:26 by pcharlot          #+#    #+#             */
-/*   Updated: 2020/02/23 18:46:19 by pcharlot         ###   ########.fr       */
+/*   Updated: 2020/03/01 13:38:11 by pcharlot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ typedef struct		s_data
 	t_stack 		*a_down;
 	t_stack 		*b;
 	t_stack 		*b_down;
+	int 			*tabb;
 	int 			*sort;
 	int 			size;
 	int				a_len;
@@ -59,9 +60,6 @@ int					ft_strcmp(char *s1, char *s2); ///она нужна вообще?
 
 void				nachalo_detected(char *s);
 
-
-
-
 long long			atosh(char *s, int *i); ///подумать над обработкой максимального и минимального интов ? возможно - решено
 
 void				check_chars(char *s);
@@ -69,11 +67,17 @@ int					int_count(char *s);
 void				check_tab(int *tab, int size);
 
 void				init_tab(char *s, t_data **data);
+void				init_sort(t_data **data);
+void    			print_tab(int *tab, int size);
+void				sort_tab(int **tab, int size);
+
+int					ind(int *tab, int size, int value); ///возвращает индекс в массиве +1 когда число == value
 
 
+t_stack				*init_node(t_data *data, int value);
+void				set_a(t_data **data);
 
-void    print_tab(int *tab, int size);
-void	sort_tab(int **tab, int size);
+
 
 
 
