@@ -6,7 +6,7 @@
 /*   By: pcharlot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/23 10:57:26 by pcharlot          #+#    #+#             */
-/*   Updated: 2020/03/01 17:57:36 by pcharlot         ###   ########.fr       */
+/*   Updated: 2020/03/01 18:02:17 by pcharlot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ typedef struct		s_stack
 	int 			i;
 	int 			flag;
 	struct s_stack	*next;
-	struct s_stack	*prev;
 
 }					t_stack;
 
