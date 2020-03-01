@@ -6,7 +6,7 @@
 /*   By: pcharlot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/23 13:50:04 by pcharlot          #+#    #+#             */
-/*   Updated: 2020/03/01 15:07:43 by pcharlot         ###   ########.fr       */
+/*   Updated: 2020/03/01 18:01:21 by pcharlot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,27 +75,57 @@ t_stack	*init_node(t_data *data, int value)
 	new->i = ind(data->sort, data->size, value);
 	new->flag = 0;
 	return (new);
-
 }
 
-void 	set_a(t_data **data)
+
+void	ft_stackadd(t_stack *stack, t_stack *new)
 {
-	int i;
-	t_stack *temp;
-	t_stack *prev;
+	t_stack	*ptr;
 
-	(*data)->a = init_node(*data, (*data)->tabb[0]);
-	prev = (*data)->a;
-	temp = (*data)->a->next;
-	i  = 1;
-	while (i < (*data)->size)
+	if (!(stack))
 	{
-		temp = init_node(*data, (*data)->tabb[i]);
-		temp->prev = prev;
-		prev->next = temp;
-		++i;
-		temp = temp->next;
-		prev = prev->next;
+		stack = new;
+		new->prev = NULL;
+		return ;
 	}
-
+	ptr = stack;
+	while(ptr->next)
+		ptr = ptr->next;
+	ptr->next = new;
+	new->prev = ptr;
 }
+
+void 	set_a(t_data *data)
+{
+	int		i;
+	t_stack	*new;
+
+	i  = 0;
+	while (i < data->size)
+	{
+		new = init_node(data, data->tabb[i]);
+		fatality(new);
+		ft_stackadd(&data->a, new);
+		++i;
+	}
+}
+
+//void 	set_a(t_data *data) ///уточнить можно ли создать без инициализации корня
+//{
+//	int i;
+//	t_stack *temp;
+//	t_stack *prev;
+//
+//	data->a = init_node(data, data->tabb[0]);
+//	prev = data->a;
+//	i  = 1;
+//	while (i < data->size)
+//	{
+//		temp = init_node(data, data->tabb[i]);
+//		temp->prev = prev;
+//		prev->next = temp;
+//		++i;
+//		prev = prev->next;
+//	}
+//}
+

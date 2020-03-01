@@ -6,7 +6,7 @@
 /*   By: pcharlot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/23 17:18:08 by pcharlot          #+#    #+#             */
-/*   Updated: 2020/03/01 15:06:11 by pcharlot         ###   ########.fr       */
+/*   Updated: 2020/03/01 17:50:30 by pcharlot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,45 +40,41 @@ typedef struct		s_data
 
 #include "push_swap.h"
 
-static void	init_tdata(t_data **data)
+static void	init_tdata(t_data *data)
 {
-//	(*data)->a = malloc(sizeof(t_stack));
-	(*data)->a = NULL;
-//	(*data)->a_down = malloc(sizeof(t_stack));
-	(*data)->a_down = NULL;
-//	(*data)->b = malloc(sizeof(t_stack));
-	(*data)->b = NULL;
-//	(*data)->b_down = malloc(sizeof(t_stack));
-	(*data)->b_down = NULL;
-	(*data)->tabb = NULL;
-	(*data)->sort = NULL;
-	(*data)->size = 0;
-	(*data)->a_len = 0;
-	(*data)->b_len = 0;
-	(*data)->a_mid = 0;
-	(*data)->b_mid = 0;
+	data->a = NULL;
+	data->a_down = NULL;
+	data->b = NULL;
+	data->b_down = NULL;
+	data->tabb = NULL;
+	data->sort = NULL;
+	data->size = 0;
+	data->a_len = 0;
+	data->b_len = 0;
+	data->a_mid = 0;
+	data->b_mid = 0;
 }
+
 
 void		nachalo_detected(char *s)
 {
 	t_data	*data;
 
 	data = (t_data *)malloc(sizeof(t_data));
-	init_tdata(&data);
-	init_tab(s, &data);
+	init_tdata(data);
+//	printf("%d %d %d %d %d", data->size, data->a_len, data->b_len, data->a_mid, data->b_mid);
+	init_tab(s, data);
+
 	free(s); ///можно фришить в мейнике/подумать
+
 	print_tab(data->tabb, data->size);
 	print_tab(data->sort, data->size);
 //	printf("%d", data->size);
-	set_a(&data);
+	set_a(data);
 //	printf("%d\n", data->a->next->next->next->next->next->next->next->nbr);
 //	printf("%d", data->a->next->next->next->next->next->next->next->i);
 	print_stack(data->a);
 	print_stack(data->b);
-
-
-
-
 
 
 }

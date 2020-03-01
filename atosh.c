@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-long long	atosh(char *s, int *i) ///вытаскивает из строки число, если число не входит в формат INTa - выдает ошибку
+int	atosh(char *s, int *i) ///вытаскивает из строки число, если число не входит в формат INTa - выдает ошибку
 {
 	int			sign;
 	long long	res;
@@ -48,6 +48,6 @@ long long	atosh(char *s, int *i) ///вытаскивает из строки ч�
 //		write(2, "Error: among the supplied values there are non-integer numbers.", 63);
 //		exit (0);
 //	}
-	return (res * sign);
+	return ((int)(res * sign));
 }
 

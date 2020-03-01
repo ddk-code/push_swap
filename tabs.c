@@ -26,18 +26,18 @@ void    print_tab(int *tab, int size)
 	printf("\n");
 }
 
-void	sort_tab(int **tab, int size)
+void	sort_tab(int *tab, int size)
 {
 	int i;
-	int *temp;
+//	int *temp;
 
-	temp = *tab;
+//	temp = *tab;
 	i = 0;
 	while(i < size - 1)
 	{
-		if (temp[i] > temp[i + 1])
+		if (tab[i] > tab[i + 1])
 		{
-			swapi(&temp[i], &temp[i + 1]);
+			swapi(&tab[i], &tab[i + 1]);
 			i = -1;
 		}
 		++i;

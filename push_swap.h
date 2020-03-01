@@ -6,7 +6,7 @@
 /*   By: pcharlot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/23 10:57:26 by pcharlot          #+#    #+#             */
-/*   Updated: 2020/03/01 13:38:11 by pcharlot         ###   ########.fr       */
+/*   Updated: 2020/03/01 17:57:36 by pcharlot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ typedef struct		s_data
 }					t_data;
 
 
+void	ft_stackadd(t_stack *stack, t_stack *new);
 
 int					is09(char c);
 int					is19(char c);
@@ -60,22 +61,22 @@ int					ft_strcmp(char *s1, char *s2); ///она нужна вообще?
 
 void				nachalo_detected(char *s);
 
-long long			atosh(char *s, int *i); ///подумать над обработкой максимального и минимального интов ? возможно - решено
+int					atosh(char *s, int *i); ///подумать над обработкой максимального и минимального интов ? возможно - решено
 
 void				check_chars(char *s);
 int					int_count(char *s);
 void				check_tab(int *tab, int size);
 
-void				init_tab(char *s, t_data **data);
-void				init_sort(t_data **data);
+void				init_tab(char *s, t_data *data); //////=============
+void				init_sort(t_data *data); //////=============
 void    			print_tab(int *tab, int size);
-void				sort_tab(int **tab, int size);
+void				sort_tab(int *tab, int size); //////=============
 
 int					ind(int *tab, int size, int value); ///возвращает индекс в массиве +1 когда число == value
 
 
 t_stack				*init_node(t_data *data, int value);
-void				set_a(t_data **data);
+void				set_a(t_data *data); //////=============
 
 
 

@@ -6,7 +6,7 @@
 /*   By: pcharlot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/23 13:57:44 by pcharlot          #+#    #+#             */
-/*   Updated: 2020/03/01 13:25:32 by pcharlot         ###   ########.fr       */
+/*   Updated: 2020/03/01 17:46:45 by pcharlot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,7 @@ void	check_tab(int *tab, int size)
 	}
 }
 
-void	init_tab(char *s, t_data **data) ///собирает массив интов, состоящий из переданных аргументов, если есть некорректные числа/сборные числа - выдает ошибку
+void	init_tab(char *s, t_data *data) ///собирает массив интов, состоящий из переданных аргументов, если есть некорректные числа/сборные числа - выдает ошибку
 {
 	int i;
 	int j;
@@ -98,12 +98,12 @@ void	init_tab(char *s, t_data **data) ///собирает массив инто�
 	j = 0;
 	i = 0;
 	check_chars(s);
-	(*data)->size = int_count(s);
-	(*data)->tabb = malloc(sizeof(int) * (*data)->size);
-	fatality((*data)->tabb);
-	while (j < (*data)->size)
+	data->size = int_count(s);
+	data->tabb = malloc(sizeof(int) * data->size);
+	fatality(data->tabb);
+	while (j < data->size)
 	{
-		(*data)->tabb[j] = atosh(s, &i);
+		data->tabb[j] = atosh(s, &i);
 		if (!issp(s[i]))
 		{
 			write(2, "Error_9: среди переданных чисел есть некорректные!", 84); /// Тут вариант чисел, когда внутри цифр есть +/- Другие варианты отсеиваются при проверке символов по строке
@@ -111,21 +111,21 @@ void	init_tab(char *s, t_data **data) ///собирает массив инто�
 		}
 		++j;
 	}
-	check_tab((*data)->tabb, (*data)->size);
+	check_tab(data->tabb, data->size);
 	init_sort(data);
 }
 
-void	init_sort(t_data **data)
+void	init_sort(t_data *data)
 {
 	int	i;
 
-	(*data)->sort = malloc(sizeof(int) * (*data)->size);
-	fatality((*data)->sort);
+	data->sort = malloc(sizeof(int) * data->size);
+	fatality(data->sort);
 	i = 0;
-	while (i < (*data)->size)
+	while (i < data->size)
 	{
-		(*data)->sort[i] = (*data)->tabb[i];
+		data->sort[i] = data->tabb[i];
 		++i;
 	}
-	sort_tab(&(*data)->sort, (*data)->size);
+	sort_tab(data->sort, data->size);
 }
