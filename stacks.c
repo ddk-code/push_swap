@@ -6,7 +6,7 @@
 /*   By: pcharlot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/23 13:50:04 by pcharlot          #+#    #+#             */
-/*   Updated: 2020/03/01 14:42:54 by pcharlot         ###   ########.fr       */
+/*   Updated: 2020/03/01 15:07:43 by pcharlot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,9 +45,20 @@ void	print_stack(t_stack *st)
 	t_stack	*temp;
 
 	temp = st;
+	if (!temp)
+		printf("\nstack: NULL");
 	while(temp)
 	{
-		printf("%d(%d) ", temp->nbr, temp->i);
+		printf("\n\nnode: %d(%d) \n", temp->nbr, temp->i);
+		if (temp->prev)
+			printf("prev: %d(%d) ", temp->prev->nbr, temp->prev->i);
+		else
+			printf("prev: NULL ");
+		if (temp->next)
+			printf("next: %d(%d) ", temp->next->nbr, temp->next->i);
+		else
+			printf("next: NULL ");
+
 		temp = temp->next;
 	}
 }
