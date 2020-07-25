@@ -22,14 +22,14 @@ typedef struct		s_data
 	int 			size;
 	int				a_len;
 	int 			b_len;
-	int 			a_mid;
-	int 			b_mid;
+	int 			a_med;
+	int 			b_med;
 }					t_data;
 
  typedef struct		s_stack
 {
 	int				nbr;
-	int 			i;
+	int 			sort_i;
 	int 			flag;
 	struct s_stack	*next;
 
@@ -49,14 +49,54 @@ void	print_stack(t_stack *st)
 		printf("\nstack: NULL");
 	while(temp)
 	{
-		printf("\n\nnode: %d(%d) \n", temp->nbr, temp->i);
-		if (temp->next)
-			printf("next: %d(%d) ", temp->next->nbr, temp->next->i);
-		else
-			printf("next: NULL ");
+		printf("\nnode: %d (%d: %d) \n", temp->nbr, temp->i, temp->sort_i);
+//		if (temp->next)
+//			printf("next: %d(%d) ", temp->next->nbr, temp->next->sort_i);
+//		else
+//			printf("next: NULL ");
 
 		temp = temp->next;
 	}
+}
+
+void	print_st(t_stack *st)
+{
+    t_stack	*temp;
+
+    temp = st;
+    if (!temp)
+        printf("stack: NULL");
+    while(temp)
+    {
+        printf("[%d] (№ %d:sorti %d)  ", temp->nbr, temp->i, temp->sort_i);
+//		if (temp->next)
+//			printf("next: %d(%d) ", temp->next->nbr, temp->next->sort_i);
+//		else
+//			printf("next: NULL ");
+
+        temp = temp->next;
+    }
+    printf("\n");
+}
+
+void	printst(t_stack *st)
+{
+    t_stack	*temp;
+
+    printf("\n");
+    temp = st;
+    if (!temp)
+        printf("stack: NULL");
+    while(temp)
+    {
+        printf("%d[%d]  ", temp->nbr, temp->sort_i);
+//		if (temp->next)
+//			printf("next: %d(%d) ", temp->next->nbr, temp->next->sort_i);
+//		else
+//			printf("next: NULL ");
+
+        temp = temp->next;
+    }
 }
 
 t_stack	*init_node(t_data *data, int value)
@@ -67,20 +107,21 @@ t_stack	*init_node(t_data *data, int value)
 	fatality(new);
 	new->next = NULL;
 	new->nbr = value;
-	new->i = ind(data->sort, data->size, value);
+	new->sort_i = ind(data->sort, data->size, value);
+    new->i = ind(data->tabb, data->size, value);
 	new->flag = 0;
 	return (new);
 }
 
 void 	set_a(t_data *data)
 {
-	int i;
+	int     i;
 	t_stack *new;
 	t_stack *temp;
 
 //	data->a = init_node(data, data->tabb[0]);
 //	temp = data->a;
-//	i  = 1;
+//	sort_i  = 1;
 	i = 0;
 	while (i < data->size)
 	{
@@ -91,6 +132,8 @@ void 	set_a(t_data *data)
 		++i;
 		temp = temp->next;
 	}
+	data->a_len = data->size;
+	data->b_len = 0;
 }
 
 
@@ -106,13 +149,13 @@ void 	set_a(t_data *data)
 //		printf("\nstack: NULL");
 //	while(temp)
 //	{
-//		printf("\n\nnode: %d(%d) \n", temp->nbr, temp->i);
+//		printf("\n\nnode: %d(%d) \n", temp->nbr, temp->sort_i);
 //		if (temp->prev)
-//			printf("prev: %d(%d) ", temp->prev->nbr, temp->prev->i);
+//			printf("prev: %d(%d) ", temp->prev->nbr, temp->prev->sort_i);
 //		else
 //			printf("prev: NULL ");
 //		if (temp->next)
-//			printf("next: %d(%d) ", temp->next->nbr, temp->next->i);
+//			printf("next: %d(%d) ", temp->next->nbr, temp->next->sort_i);
 //		else
 //			printf("next: NULL ");
 //
@@ -129,7 +172,7 @@ void 	set_a(t_data *data)
 //	new->prev = NULL;
 //	new->next = NULL;
 //	new->nbr = value;
-//	new->i = ind(data->sort, data->size, value);
+//	new->sort_i = ind(data->sort, data->size, value);
 //	new->flag = 0;
 //	return (new);
 //}
@@ -158,34 +201,34 @@ void 	set_a(t_data *data)
 //
 //void 	set_a(t_data *data)
 //{
-//	int		i;
+//	int		sort_i;
 //	t_stack	*new;
 //
-//	i  = 0;
-//	while (i < data->size)
+//	sort_i  = 0;
+//	while (sort_i < data->size)
 //	{
-//		new = init_node(data, data->tabb[i]);
+//		new = init_node(data, data->tabb[sort_i]);
 //		fatality(new);
 //		ft_stackadd(&data->a, new);
-//		++i;
+//		++sort_i;
 //	}
 //}
 
 //void 	set_a(t_data *data) ///уточнить можно ли создать без инициализации корня
 //{
-//	int i;
+//	int sort_i;
 //	t_stack *new;
 //	t_stack *temp;
 //
 //	data->a = init_node(data, data->tabb[0]);
 //	temp = data->a;
-//	i  = 1;
-//	while (i < data->size)
+//	sort_i  = 1;
+//	while (sort_i < data->size)
 //	{
-//		new = init_node(data, data->tabb[i]);
+//		new = init_node(data, data->tabb[sort_i]);
 //		new->prev = temp;
 //		temp->next = new;
-//		++i;
+//		++sort_i;
 //		temp = temp->next;
 //	}
 //}

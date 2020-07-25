@@ -22,14 +22,14 @@ typedef struct		s_data
 	int 			size;
 	int				a_len;
 	int 			b_len;
-	int 			a_mid;
-	int 			b_mid;
+	int 			a_med;
+	int 			b_med;
 }					t_data;
 
  typedef struct		s_stack
 {
 	int				nbr;
-	int 			i;
+	int 			sort_i;
 	int 			flag;
 	struct s_stack	*next;
 	struct s_stack	*prev;
@@ -105,12 +105,12 @@ int			main(int argc, char **argv)
 
 //
 //	int *tab;
-//	i = 0;
+//	sort_i = 0;
 //	tab = ft_tab(s);
-//	while (i < int_count(s))
+//	while (sort_i < int_count(s))
 //	{
-//		printf("%d\n", tab[i]);
-//		++i;
+//		printf("%d\n", tab[sort_i]);
+//		++sort_i;
 //	}
 
 //	printf("%d\n", tab[0]);
